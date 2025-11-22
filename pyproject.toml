@@ -1,0 +1,27 @@
+[project]
+name = "llm_ffi"
+version = "0.1.0"
+description = "Generate LLM code with boundaries"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=0.74.1",
+    "click>=8.3.1",
+    "pydantic>=2.12.4",
+    "pydantic-settings>=2.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.6",
+]
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatchling.build.targets.wheel]
+packages = ["llm_ffi"]
+
+[tool.hatchling.build.targets.wheel.force-include]
+"llm_ffi/prompts" = "llm_ffi/prompts"
